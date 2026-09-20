@@ -1,0 +1,81 @@
+@import "tailwindcss";
+
+@theme inline {
+  --font-sans: var(--font-wix), ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-arabic: var(--font-amiri), "Traditional Arabic", "Geeza Pro", "Noto Naskh Arabic", serif;
+  --font-malayalam: var(--font-ml), "Noto Sans Malayalam", "Nirmala UI", sans-serif;
+}
+
+@theme {
+  /* One restrained accent on top of LearnHouse's black-and-white base */
+  --color-qalam-50: #eef8f3;
+  --color-qalam-100: #d7efe3;
+  --color-qalam-600: #0e7a58;
+  --color-qalam-700: #0a6248;
+  --color-qalam-900: #06382a;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 76px;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: var(--font-sans);
+  color: #111827;
+  background: #fff;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* Visible keyboard focus everywhere (unlayered, so it beats utility outlines) */
+:focus-visible {
+  outline: 2px solid var(--color-qalam-700);
+  outline-offset: 2px;
+  border-radius: 6px;
+}
+
+::selection {
+  background: var(--color-qalam-100);
+}
+
+@layer components {
+  /* Same card treatment as LearnHouse */
+  .nice-shadow {
+    box-shadow: 0 4px 6px -1px rgb(209 213 219 / 0.25), 0 2px 4px -2px rgb(209 213 219 / 0.25);
+    outline: 1px solid rgb(229 229 229 / 0.4);
+  }
+
+  /* LearnHouse "blueprint" grid, fading up from the bottom */
+  .blueprint {
+    pointer-events: none;
+    background-image:
+      linear-gradient(rgba(0, 0, 0, 0.035) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0, 0, 0, 0.035) 1px, transparent 1px),
+      linear-gradient(rgba(0, 0, 0, 0.018) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0, 0, 0, 0.018) 1px, transparent 1px);
+    background-size: 80px 80px, 80px 80px, 16px 16px, 16px 16px;
+    -webkit-mask-image: linear-gradient(to top, black 0%, transparent 70%);
+    mask-image: linear-gradient(to top, black 0%, transparent 70%);
+  }
+
+  .prose-qalam p,
+  .prose-qalam li {
+    line-height: 1.75;
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+.animate-fade-in {
+  animation: fadeIn 0.3s ease-out;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .animate-fade-in { animation: none; }
+  * { transition-duration: 0.01ms !important; }
+}
