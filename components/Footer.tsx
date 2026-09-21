@@ -72,9 +72,20 @@ export function Footer() {
         </nav>
       </div>
       <div className="border-t border-gray-100">
-        <div className="mx-auto flex max-w-6xl flex-col gap-1 px-4 py-6 text-[13px] font-medium text-gray-500 sm:flex-row sm:justify-between sm:px-6 lg:px-8">
+        <div className="mx-auto flex max-w-6xl flex-col gap-1 px-4 py-6 text-[13px] font-medium text-gray-500 sm:flex-row sm:items-center sm:justify-between sm:px-6 lg:px-8">
           <p>© {new Date().getFullYear()} {site.name}. All rights reserved.</p>
           <p>Online madrasa for children in the UAE, Saudi Arabia, Qatar, Kuwait, Oman and Bahrain.</p>
+          <p>
+            Developed by{" "}
+            <a
+              href="https://eclyze-website.vercel.app"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-gray-700 underline decoration-gray-300 underline-offset-4 transition-colors hover:text-gray-900 hover:decoration-gray-900"
+            >
+              Eclyze
+            </a>
+          </p>
         </div>
       </div>
     </footer>
