@@ -9,7 +9,7 @@ export const site = {
   tagline: "Madrasa Education, Our Priority",
   description:
     "Live online madrasa classes for children of Gulf expatriate families: Noorani Qaida, Quran recitation with Tajweed, Hifz and Islamic studies with qualified teachers.",
-  url: (process.env.NEXT_PUBLIC_SITE_URL ?? "https://qalamonline.vercel.app").replace(/\/$/, ""),
+  url: (process.env.NEXT_PUBLIC_SITE_URL || "https://qalamonline.vercel.app").replace(/\/$/, ""),
 
   // Contact — the number is treated as an Indian mobile that also works on WhatsApp.
   phoneDisplay: "+91 73066 85324",
